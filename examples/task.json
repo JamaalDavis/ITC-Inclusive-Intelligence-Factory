@@ -1,0 +1,16 @@
+{
+  "task_id": "itc-pilot-001",
+  "topic": "Who gets to appeal an algorithm?",
+  "audience": "inclusive designers and community advocates",
+  "deliverable": "article",
+  "approval_required": true,
+  "source_urls": [],
+  "accessibility_requirements": [
+    "clear headings",
+    "meaningful alt text",
+    "human escalation path"
+  ],
+  "permissions": [
+    "draft"
+  ]
+}
