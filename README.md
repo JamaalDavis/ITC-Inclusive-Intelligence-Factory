@@ -106,6 +106,47 @@ journey
 
 Use interviews and accessibility review to validate this journey before treating it as evidence. Track clarity of the brief, review turnaround, access barriers, and whether members can use the final content.
 
+## Service blueprint
+
+Follow the service from left to right. Each row shows what the community member experiences and what ITC must do to support it. This is a proposed service design, not evidence from a live service.
+
+| Service layer | 1. Request | 2. Agree | 3. Prepare and review | 4. Deliver | 5. Improve |
+| --- | --- | --- | --- | --- | --- |
+| **Community actions** | Share a question and optional access preferences | Confirm the outcome and format | Clarify the request if needed | Read or listen to the explainer | Report a barrier or request a correction |
+| **Visible editorial support** | Acknowledge the request | Confirm scope, format, and next step | Explain progress or a hold | Share approved content in the agreed format | Acknowledge feedback and explain the response |
+| **Internal work** | Validate task and authority | Select minimal relevant context | Prepare evidence and draft; evaluate; conduct human source and accessibility review | Obtain explicit approval before requesting publication | Triage feedback; revise content or the next brief |
+| **Supporting systems** | Task schema | Context selection rules | Handoff contract and evaluation report | Approval gate; restricted publishing adapter (future) | Feedback records and outcome metrics (future) |
+| **Service evidence** | Request summary | Agreed brief | Draft, source packet, review findings | Approval record and accessible explainer | Correction record and updated brief |
+| **Failure and recovery** | Missing details: ask a focused question | Unclear scope: agree it before drafting | Failed checks or review: revise; approval missing: hold | Publication failure: retain approved packet and report status | Access barrier: offer an alternative format and review the cause |
+
+**Line of interaction:** between community actions and visible editorial support. **Line of visibility:** between visible editorial support and internal work. Supporting systems enable the service; human reviewers retain editorial judgment and publication authority.
+
+### Review and delivery gate
+
+This diagram highlights the decision that controls delivery. Passing automated checks alone does not authorize publication.
+
+```mermaid
+flowchart TD
+    A["Agreed brief and access preferences"] --> B["Prepare evidence, draft, and design"]
+    B --> C{"Required checks pass?"}
+    C -->|No| R["Revise with specific findings"]
+    R --> B
+    C -->|Yes| D["Human source and accessibility review"]
+    D --> E{"Review outcome?"}
+    E -->|Revisions requested| R
+    E -->|Not approved| H["Hold and explain the next step"]
+    E -->|Approved| F{"Review evidence and explicit approval recorded?"}
+    F -->|No| H
+    F -->|Yes| G["Request delivery through restricted adapter - future"]
+    G --> I["Member receives agreed format - future"]
+    I --> J["Feedback or correction request - future"]
+    J -.->|Next revision| B
+```
+
+**Text equivalent:** Prepare content from an agreed brief, run checks, and revise failures. A human then reviews sources and accessibility. Requested changes return to preparation; a refusal or missing approval evidence keeps publication on hold. Only passing checks, recorded review evidence, and explicit approval allow future delivery. Feedback can initiate another revision, which must pass the same gates.
+
+**Implementation boundary:** v0.1 validates tasks, selects context, uses fixtures for research and drafting, and runs a subset of evaluation checks. The demo blocks at human review. Member communications, persistent review records, live publishing, and feedback handling shown here remain future service capabilities. Recovery actions in the table are proposed operating practices.
+
 ## First pilot metrics
 
 Source-backed claim rate, critical accessibility defects, time spent correcting drafts, editorial consistency, task success, and run cost. Compare baseline and new workflow using the same briefs and reviewer rubric.
